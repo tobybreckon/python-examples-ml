@@ -79,7 +79,7 @@ dtree.setUseSurrogates(False);  # compute surrogate split, no missing data
 # specify that the types of our attributes is numerical with a categorical output
 # and we have 31 of them (30 attributes + 1 class label)
 
-var_types = np.array([cv2.ml.VAR_ORDERED] * 30 + [cv2.ml.VAR_CATEGORICAL], np.uint8)
+var_types = np.array([cv2.ml.VAR_NUMERICAL] * 30 + [cv2.ml.VAR_CATEGORICAL], np.uint8)
 
 # train decision tree object
 
