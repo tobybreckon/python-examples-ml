@@ -8,7 +8,7 @@
 # Author : Toby Breckon, toby.breckon@durham.ac.uk
 # Version : with OpenCV 3 / Python 3 fixes
 
-# Copyright (c) 2014 School of Engineering & Computing Science,
+# Copyright (c) 2014 / 2016 School of Engineering & Computing Sciences,
 #                    Durham University, UK
 # License : LGPL - http://www.gnu.org/licenses/lgpl.html
 
@@ -83,7 +83,7 @@ testing_class_labels=np.array(label_list).astype(np.float32)
 
 ############ Perform Training -- Boosted Trees
 
-# defineboosted tree object
+# define boosted tree object
 
 boostedTree = cv2.ml.Boost_create();
 
@@ -95,13 +95,14 @@ boostedTree.setMaxDepth(3);               # max tree depth (low -> weak classifi
 boostedTree.setMinSampleCount(5);         # min sample count
 boostedTree.setPriors(np.float32([1,1])); # the array of priors, the bigger weight, the more attention to the assoc. class
                                           # (i.e. a case will be judjed to be maligant with bigger chance))
+                                          # N.B. here set as length 2 as we are using 2-class unrolling
 boostedTree.setRegressionAccuracy(0);     # regression accuracy: N/A here
 boostedTree.setTruncatePrunedTree(True);  # throw away the pruned tree branches
 boostedTree.setUse1SERule(False);         # use 1SE rule => smaller tree
 boostedTree.setUseSurrogates(False);      # compute surrogate split, no missing data
 
 boostedTree.setBoostType(cv2.ml.BOOST_REAL); # suited to classification problems (see manual for other options)
-boostedTree.setWeakCount(15)                 # number of weak classifiers in the boosted ensemble
+boostedTree.setWeakCount(100);                 # number of weak classifiers in the boosted ensemble
 boostedTree.setWeightTrimRate(0.95);         # threshold in range {0->1} to save computation. Training examples with weight < (1 - trim_rate) as excluded from next training iteration
 
 # specify that the types of our variables is numerical and we have 65 + 1 of them (64 attributes + 1 class label + 1 unrolled label)
