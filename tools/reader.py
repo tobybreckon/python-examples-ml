@@ -20,7 +20,7 @@ import numpy as np
 
 ########### Define classes
 
-classes = {} # define mapping of cla
+classes = {} # define mapping of classes
 inv_classes = {v: k for k, v in classes.items()}
 
 ########### Load Data Set
