@@ -22,6 +22,11 @@ import numpy as np
 
 ### classes as integers {0 ... 9}
 
+## use SVM auto-training (grid search)
+# if available in python bindings; see open issue: https://github.com/opencv/opencv/issues/7224
+
+use_svm_autotrain = False;
+
 ########### Load Training and Testing Data Sets
 
 # load training data set (N.B. delimiter is space, not comma)
@@ -78,7 +83,19 @@ svm.setClassWeights(np.float32([1,1,1,1,1,1,1,1,1,1]));
 
 # define and train svm object
 
-svm.train(training_attributes, cv2.ml.ROW_SAMPLE, training_class_labels);
+if (use_svm_autotrain) :
+
+    # use automatic grid search across the parameter space of kernel specified above
+    # (ignoring kernel parameters set previously)
+
+    # if available in python bindings; see open issue: https://github.com/opencv/opencv/issues/7224
+
+    svm.trainAuto(cv2.ml.TrainData_create(training_attributes, cv2.ml.ROW_SAMPLE, training_class_labels.astype(int)), kFold=10);
+else :
+
+    # use kernel specified above with kernel parameters set previously
+
+    svm.train(training_attributes, cv2.ml.ROW_SAMPLE, training_class_labels);
 
 ############ Perform Testing -- SVM
 
