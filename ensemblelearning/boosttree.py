@@ -49,7 +49,7 @@ def unroll_responses(number_of_class, responses):
         new_responses[resp_idx] = 1
         return new_responses
 
-########### Load Training and Testing Data SetsTypeError: can only concatenate tuple (not "int") to tuple
+########### Load Training and Testing Data Sets
 
 # load training data set
 
@@ -127,7 +127,7 @@ for i in range(0, len(testing_attributes[:,0])) :
 
         # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         #
-        # As currently boosted tree classifier in OpenCV can only be trained
+        # As currently the boosted tree classifier in OpenCV can only be trained
         # for 2-class problems, we transform the training data set by
         # "unrolling" each training sample as many times as the number of
         # classes (10) that we have.
