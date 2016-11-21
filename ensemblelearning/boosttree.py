@@ -146,12 +146,13 @@ for i in range(0, len(testing_attributes[:,0])) :
 
     unrolled_testing_examples = unroll_sample(number_of_classes, testing_attributes[i,:])
 
-    # we perform testing over the unrolled example by specifying the returnSum parameter to
-    # to return the sum of the number of trees that classified a given example as 1.
-    # This is repeated over all of the unrolled examples, with the most voted for unrolled
-    # class returned as the final classification result
+    # we perform testing over all the unrolled examples and take the maximum result
+    # following the example at:
+    # https://github.com/opencv/opencv/blob/master/samples/python/letter_recog.py
 
-    # _, result = np.array([boostedTree.predict(ex, returnSum = True) for ex in unrolled_testing_examples] );
+    # result should contain the number of trees that voted for each unrolled
+    # example, hence each class
+
     _, result = boostedTree.predict(unrolled_testing_examples);
 
     result = result.reshape(-1, number_of_classes).argmax(1);
