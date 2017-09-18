@@ -9,7 +9,7 @@ All tested with [OpenCV](http://www.opencv.org) 3.x and Python 3.x.
 
 ### Background:
 
-Directly adapted from the older [C++](https://github.com/tobybreckon/cpp-examples-ml) OpenCV machine learning teaching examples _(that for a long time, the in absence of other fully worked examples for the OpenCV machine learning components became the defacto reference for the use of these OpenCV routines)_
+Directly adapted from the older [C++](https://github.com/tobybreckon/cpp-examples-ml) OpenCV machine learning teaching examples _(that for a long time, the in absence of other fully worked examples for the OpenCV machine learning components became the de facto reference for the use of these OpenCV routines)_
 
 All dataset examples are taken and reproduced from the [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml/).
 
