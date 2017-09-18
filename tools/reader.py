@@ -34,12 +34,12 @@ label_list = []
 
 reader=csv.reader(open(os.path.join(path_to_data, "Train/x_train.txt"),"rt", encoding='ascii'),delimiter=' ')
 for row in reader:
-        # attributes in columns 0-561
+        # attributes in columns 0-561 of this attributes only file
         attribute_list.append(list(row[i] for i in (range(0,561))))
 
 reader=csv.reader(open(os.path.join(path_to_data, "Train/y_train.txt"),"rt", encoding='ascii'),delimiter=' ')
 for row in reader:
-        # attributes in column 1
+        # class label in column 1 of this labels only file
         label_list.append(row[0])
 
 training_attributes=np.array(attribute_list).astype(np.float32)
@@ -52,12 +52,12 @@ label_list = []
 
 reader=csv.reader(open(os.path.join(path_to_data, "Test/x_test.txt"),"rt", encoding='ascii'),delimiter=' ')
 for row in reader:
-        # attributes in columns 0-561
+        # attributes in columns 0-561 of this attributes only file
         attribute_list.append(list(row[i] for i in (range(0,561))))
 
 reader=csv.reader(open(os.path.join(path_to_data, "Test/y_test.txt"),"rt", encoding='ascii'),delimiter=' ')
 for row in reader:
-        # attributes in column 1
+        # class label in column 1 of this labels only file
         label_list.append(row[0])
 
 testing_attributes=np.array(attribute_list).astype(np.float32)

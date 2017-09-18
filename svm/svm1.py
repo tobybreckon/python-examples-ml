@@ -88,7 +88,7 @@ if (use_svm_autotrain) :
     # use automatic grid search across the parameter space of kernel specified above
     # (ignoring kernel parameters set previously)
 
-    # if available in python bindings; see open issue: https://github.com/opencv/opencv/issues/7224
+    # if it is available : see https://github.com/opencv/opencv/issues/7224
 
     svm.trainAuto(cv2.ml.TrainData_create(training_attributes, cv2.ml.ROW_SAMPLE, training_class_labels.astype(int)), kFold=10);
 else :

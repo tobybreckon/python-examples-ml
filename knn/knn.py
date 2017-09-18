@@ -64,10 +64,6 @@ knn = cv2.ml.KNearest_create();
 
 knn.setAlgorithmType(cv2.ml.KNEAREST_BRUTE_FORCE);
 
-# set default 3, can be changed at query time in predict() call
-
-knn.setDefaultK(3);
-
 # set up classification, turning off regression
 
 knn.setIsClassifier(True);
