@@ -30,8 +30,31 @@ python3 ./<insert file name of one of the examples>.py
 
 -- which _should_ then produce an output of the results on the dataset inside that example directory.
 
+In each sub-directory:
+
++ .py file(s) - code for the examples (several examples per directory in many cases)
++ .name file - an explanation of the data and its source
++ .data file - the original and complete set of data (CSV file format)
++ .train file - the data to be used for training (CSV file format)
++ .test file - the data to be used for testing (CSV file format)
++ .xml, .yml - if present, example data files for testing some tools
+
+For some examples you may need to copy/link the .train/.test files from one of the other directories (it seemed silly to archive them multiple times).
+
 Demo source code is provided _"as is"_ to aid learning and understanding of topics on the course and beyond.
 
+---
+
+If referencing these examples in your own work please use:
+```
+@TechReport{breckon2014,
+  author =       {Breckon, T.P.},
+  title =        {Machine Learning - Course Notes and Materials},
+  institution =  {Durham University},
+  year =         {2014},
+  address =      {Durham, UK},
+}
+```
 ---
 
 If you find any bugs raise an issue (or much better still submit a git pull request with a fix) - toby.breckon@durham.ac.uk
